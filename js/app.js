@@ -1,12 +1,11 @@
 /**
  * app.js
- * Progressive enhancement for Sai Teja Lodagala's Portfolio
+ * Production client script for Sai Teja Lodagala's Portfolio
  * Systems & Control Engineering, IIT Bombay
  */
 
 document.addEventListener('DOMContentLoaded', () => {
   initFiltering();
-  initTerminal();
 });
 
 // ==========================================
@@ -50,7 +49,7 @@ function initFiltering() {
         noResultsMsg.className = 'col-span-full py-16 text-center text-slate-400 glass-card';
         noResultsMsg.innerHTML = `
           <p class="text-lg font-medium text-slate-300">No projects found matching "${searchQuery}"</p>
-          <button onclick="resetFilters()" class="mt-3 px-4 py-2 text-xs font-mono text-sky-400 hover:text-sky-300 underline">Reset all filters</button>
+          <button onclick="resetFilters()" class="mt-3 px-4 py-2 text-xs font-mono text-sky-400 hover:text-sky-300 underline cursor-pointer">Reset all filters</button>
         `;
         projectsGrid.appendChild(noResultsMsg);
       }
@@ -101,7 +100,7 @@ window.resetFilters = function() {
 };
 
 // ==========================================
-// 2. PROJECT MODAL DEEP-DIVE
+// 2. PROJECT MODAL DEEP-DIVE (With KaTeX)
 // ==========================================
 
 window.openProjectModal = function(projectId) {
@@ -135,7 +134,7 @@ window.openProjectModal = function(projectId) {
         <p class="text-xs text-sky-400 font-mono mt-1">${project.tagline}</p>
       </div>
 
-      <button onclick="closeProjectModal()" class="p-2 text-slate-400 hover:text-slate-200 rounded-lg hover:bg-slate-800 transition">
+      <button onclick="closeProjectModal()" class="p-2 text-slate-400 hover:text-slate-200 rounded-lg hover:bg-slate-800 transition cursor-pointer">
         <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
       </button>
     </div>
@@ -226,114 +225,3 @@ function showToast(msg) {
   }, 2500);
 }
 
-// ==========================================
-// 3. INTERACTIVE DEVELOPER TERMINAL (`>_`)
-// ==========================================
-
-function initTerminal() {
-  const terminalToggle = document.getElementById('terminal-toggle');
-  const terminalDrawer = document.getElementById('terminal-drawer');
-  const terminalClose = document.getElementById('terminal-close');
-  const terminalInput = document.getElementById('terminal-input');
-  const terminalOutput = document.getElementById('terminal-output');
-
-  if (!terminalToggle || !terminalDrawer) return;
-
-  terminalToggle.addEventListener('click', () => {
-    terminalDrawer.classList.toggle('hidden');
-    if (!terminalDrawer.classList.contains('hidden') && terminalInput) {
-      terminalInput.focus();
-    }
-  });
-
-  if (terminalClose) {
-    terminalClose.addEventListener('click', () => {
-      terminalDrawer.classList.add('hidden');
-    });
-  }
-
-  if (terminalInput && terminalOutput) {
-    terminalInput.addEventListener('keydown', (e) => {
-      if (e.key === 'Enter') {
-        const cmd = terminalInput.value.trim();
-        terminalInput.value = '';
-        executeTerminalCommand(cmd, terminalOutput);
-      }
-    });
-  }
-}
-
-function executeTerminalCommand(cmd, outputEl) {
-  const line = document.createElement('div');
-  line.className = 'mb-1 text-slate-300 font-mono text-xs';
-  line.innerHTML = `<span class="text-sky-400">guest@iitb:~$</span> ${cmd}`;
-  outputEl.appendChild(line);
-
-  const res = document.createElement('div');
-  res.className = 'mb-3 font-mono text-xs text-slate-300 whitespace-pre-wrap';
-
-  const cleanCmd = cmd.toLowerCase().trim();
-
-  switch (cleanCmd) {
-    case 'help':
-      res.innerHTML = `
-Available commands:
-  <span class="text-sky-400">help</span>          - Display list of terminal commands
-  <span class="text-sky-400">bio</span>           - Summary & research focus
-  <span class="text-sky-400">education</span>     - Academic degrees & institutions
-  <span class="text-sky-400">skills</span>        - Technical capabilities matrix
-  <span class="text-sky-400">projects</span>      - List of M.Tech & key projects
-  <span class="text-sky-400">contact</span>       - View email (<a href="mailto:saiteja9875@gmail.com" class="text-sky-400 underline">saiteja9875@gmail.com</a>) & LinkedIn
-  <span class="text-sky-400">clear</span>         - Clear the terminal output
-  <span class="text-sky-400">exit</span>          - Close this terminal
-      `;
-      break;
-
-    case 'bio':
-      res.innerHTML = `<span class="text-sky-300 font-bold">${PORTFOLIO_DATA.profile.name}</span>\n${PORTFOLIO_DATA.profile.title}\n\n${PORTFOLIO_DATA.profile.bio}`;
-      break;
-
-    case 'education':
-      res.innerHTML = PORTFOLIO_DATA.education.map(e => 
-        `<span class="text-sky-400 font-bold">${e.degree}</span> (${e.period})\n  ${e.institution}`
-      ).join('\n\n');
-      break;
-
-    case 'skills':
-      res.innerHTML = PORTFOLIO_DATA.skills.categories.map(c => 
-        `<span class="text-sky-400 font-bold">[${c.name}]</span>\n  ` + c.skills.join(', ')
-      ).join('\n\n');
-      break;
-
-    case 'projects':
-      res.innerHTML = PORTFOLIO_DATA.projects.map((p, i) => 
-        `${i + 1}. <span class="text-sky-300 font-bold">${p.title}</span>\n   Guide: ${p.guide} | Stack: ${p.tags.join(', ')}\n   GitHub: ${p.github}`
-      ).join('\n\n');
-      break;
-
-    case 'contact':
-      res.innerHTML = `
-Email:    <a href="mailto:${PORTFOLIO_DATA.profile.email}" class="text-sky-400 underline">${PORTFOLIO_DATA.profile.email}</a>
-GitHub:   <a href="${PORTFOLIO_DATA.profile.github}" target="_blank" class="text-sky-400 underline">${PORTFOLIO_DATA.profile.github}</a>
-LinkedIn: <a href="${PORTFOLIO_DATA.profile.linkedin}" target="_blank" class="text-sky-400 underline">${PORTFOLIO_DATA.profile.linkedin}</a>
-      `;
-      break;
-
-    case 'clear':
-      outputEl.innerHTML = '';
-      return;
-
-    case 'exit':
-      document.getElementById('terminal-drawer').classList.add('hidden');
-      return;
-
-    case '':
-      return;
-
-    default:
-      res.innerHTML = `<span class="text-rose-400">Command not recognized: "${cmd}". Type <span class="text-sky-400">help</span> for available commands.</span>`;
-  }
-
-  outputEl.appendChild(res);
-  outputEl.scrollTop = outputEl.scrollHeight;
-}

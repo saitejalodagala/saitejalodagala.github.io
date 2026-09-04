@@ -1,6 +1,7 @@
 /* ===================================================================
    styles.css - Sai Teja Lodagala Professional Engineering Portfolio
    Aesthetic: Executive Minimalist Engineering (Linear / Stripe / DeepMind style)
+   Themes: IIT Blue (Default) | Obsidian Amber Gold
    =================================================================== */
 
 @import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600&family=Inter:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap');
@@ -10,11 +11,29 @@
   --bg-card: #0d131f;
   --border-subtle: rgba(255, 255, 255, 0.08);
   --border-hover: rgba(56, 189, 248, 0.35);
-  --accent-blue: #38bdf8;
+  --accent-color: #38bdf8;
   --accent-primary: #0284c7;
+  --accent-glow: rgba(56, 189, 248, 0.15);
   --text-main: #f8fafc;
   --text-muted: #94a3b8;
   --text-body: #cbd5e1;
+  --selection-bg: #0284c7;
+  --selection-color: #ffffff;
+}
+
+[data-theme="amber"] {
+  --bg-dark: #09090b;
+  --bg-card: #111115;
+  --border-subtle: rgba(255, 255, 255, 0.07);
+  --border-hover: rgba(245, 158, 11, 0.4);
+  --accent-color: #fbbf24;
+  --accent-primary: #f59e0b;
+  --accent-glow: rgba(245, 158, 11, 0.18);
+  --text-main: #fafafa;
+  --text-muted: #a1a1aa;
+  --text-body: #e4e4e7;
+  --selection-bg: #f59e0b;
+  --selection-color: #09090b;
 }
 
 * {
@@ -27,8 +46,12 @@ body {
   background-color: var(--bg-dark);
   color: var(--text-body);
   overflow-x: hidden;
-  selection-background-color: #0284c7;
-  selection-color: #ffffff;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+::selection {
+  background-color: var(--selection-bg);
+  color: var(--selection-color);
 }
 
 /* Custom Minimalist Scrollbar */
@@ -38,7 +61,7 @@ body {
 }
 
 ::-webkit-scrollbar-track {
-  background: #080b11;
+  background: var(--bg-dark);
 }
 
 ::-webkit-scrollbar-thumb {
@@ -47,7 +70,15 @@ body {
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #38bdf8;
+  background: var(--accent-color);
+}
+
+[data-theme="amber"] ::-webkit-scrollbar-thumb {
+  background: #27272a;
+}
+
+[data-theme="amber"] ::-webkit-scrollbar-thumb:hover {
+  background: #f59e0b;
 }
 
 /* Typography */
@@ -73,6 +104,14 @@ code, pre, .font-mono {
     radial-gradient(circle at 50% 0%, rgba(56, 189, 248, 0.05) 0%, transparent 60%),
     radial-gradient(circle at 10% 30%, rgba(14, 165, 233, 0.03) 0%, transparent 40%),
     #080b11;
+  transition: background 0.4s ease;
+}
+
+[data-theme="amber"] .ambient-bg {
+  background: 
+    radial-gradient(circle at 50% 0%, rgba(245, 158, 11, 0.06) 0%, transparent 60%),
+    radial-gradient(circle at 10% 30%, rgba(251, 191, 36, 0.035) 0%, transparent 40%),
+    #09090b;
 }
 
 .grid-overlay {
@@ -91,30 +130,46 @@ code, pre, .font-mono {
 
 /* Navigation Bar */
 .glass-nav {
-  background: rgba(8, 11, 17, 0.85);
+  background: rgba(8, 11, 17, 0.88);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
   border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+  transition: background 0.3s ease, border-color 0.3s ease;
+}
+
+[data-theme="amber"] .glass-nav {
+  background: rgba(9, 9, 11, 0.9);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
 }
 
 /* Professional Cards */
 .glass-card {
-  background: #0d131f;
+  background: var(--bg-card);
   border: 1px solid rgba(255, 255, 255, 0.07);
   border-radius: 0.875rem;
   transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .glass-card:hover {
-  border-color: rgba(56, 189, 248, 0.3);
+  border-color: var(--border-hover);
   transform: translateY(-2px);
-  box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.6), 0 0 15px -3px rgba(56, 189, 248, 0.08);
+  box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.6), 0 0 18px -3px var(--accent-glow);
+}
+
+[data-theme="amber"] .glass-card {
+  background: #111115;
+  border: 1px solid rgba(255, 255, 255, 0.06);
 }
 
 .glass-panel {
-  background: #0d131f;
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: var(--bg-card);
+  border: 1px solid rgba(255, 255, 255, 0.09);
   border-radius: 0.875rem;
+}
+
+[data-theme="amber"] .glass-panel {
+  background: #111115;
+  border: 1px solid rgba(255, 255, 255, 0.07);
 }
 
 /* Filter Pills */
@@ -137,6 +192,23 @@ code, pre, .font-mono {
   color: #38bdf8;
 }
 
+[data-theme="amber"] .glass-pill {
+  background: #18181b;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  color: #a1a1aa;
+}
+
+[data-theme="amber"] .glass-pill:hover {
+  background: #27272a;
+  color: #fafafa;
+}
+
+[data-theme="amber"] .glass-pill.active {
+  background: rgba(245, 158, 11, 0.15);
+  border-color: rgba(245, 158, 11, 0.45);
+  color: #fbbf24;
+}
+
 /* Terminal Drawer styling */
 .terminal-window {
   background: #05070c;
@@ -144,8 +216,18 @@ code, pre, .font-mono {
   box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.9);
 }
 
+[data-theme="amber"] .terminal-window {
+  background: #070709;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
 .terminal-header {
   background: #090d16;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+[data-theme="amber"] .terminal-header {
+  background: #0e0e12;
   border-bottom: 1px solid rgba(255, 255, 255, 0.06);
 }
 
@@ -153,7 +235,7 @@ code, pre, .font-mono {
   display: inline-block;
   width: 7px;
   height: 14px;
-  background-color: #38bdf8;
+  background-color: var(--accent-color);
   vertical-align: middle;
   animation: blink 1s infinite;
 }
@@ -180,6 +262,10 @@ code, pre, .font-mono {
   backdrop-filter: blur(10px);
 }
 
+[data-theme="amber"] .modal-backdrop {
+  background: rgba(6, 6, 8, 0.88);
+}
+
 /* KaTeX equations in cards */
 .katex-display {
   margin: 0.6em 0 !important;
@@ -187,3 +273,144 @@ code, pre, .font-mono {
   overflow-y: hidden;
   padding: 0.3em 0;
 }
+
+/* ===================================================================
+   Amber Gold Theme Dynamic Accent Overrides
+   =================================================================== */
+[data-theme="amber"] body {
+  background-color: #08080a !important;
+}
+
+[data-theme="amber"] ::selection,
+[data-theme="amber"] *::selection {
+  background-color: #f59e0b !important;
+  color: #09090b !important;
+}
+
+/* Typography & Accent Text */
+[data-theme="amber"] .text-sky-400,
+[data-theme="amber"] .text-sky-300,
+[data-theme="amber"] .text-sky-500,
+[data-theme="amber"] .text-blue-400,
+[data-theme="amber"] .text-blue-500,
+[data-theme="amber"] .text-purple-400,
+[data-theme="amber"] .text-purple-300 {
+  color: #fbbf24 !important;
+}
+
+/* Hover & Group Hover States */
+[data-theme="amber"] .hover\:text-sky-400:hover,
+[data-theme="amber"] .hover\:text-sky-300:hover,
+[data-theme="amber"] .hover\:text-blue-400:hover,
+[data-theme="amber"] .group:hover .group-hover\:text-sky-400,
+[data-theme="amber"] .group:hover .group-hover\:text-sky-300,
+[data-theme="amber"] a:hover .group-hover\:text-sky-400 {
+  color: #fbbf24 !important;
+}
+
+/* Solid Badges, Buttons, and Bullet Dots */
+[data-theme="amber"] .bg-sky-400,
+[data-theme="amber"] .bg-sky-500,
+[data-theme="amber"] .bg-sky-600,
+[data-theme="amber"] .bg-blue-500,
+[data-theme="amber"] .bg-blue-600,
+[data-theme="amber"] .bg-purple-500 {
+  background-color: #f59e0b !important;
+  color: #09090b !important;
+}
+
+/* Specific bullet dots and small indicators */
+[data-theme="amber"] span.bg-sky-400,
+[data-theme="amber"] span.bg-sky-500,
+[data-theme="amber"] div.bg-sky-400 {
+  background-color: #fbbf24 !important;
+}
+
+/* Hover states for buttons */
+[data-theme="amber"] .hover\:bg-sky-400:hover,
+[data-theme="amber"] .hover\:bg-sky-500:hover {
+  background-color: #fbbf24 !important;
+  color: #09090b !important;
+}
+
+/* Translucent Backgrounds & Badges */
+[data-theme="amber"] .bg-sky-500\/10,
+[data-theme="amber"] .bg-sky-400\/10,
+[data-theme="amber"] .bg-sky-500\/20,
+[data-theme="amber"] .bg-sky-500\/15,
+[data-theme="amber"] .bg-sky-500\/30,
+[data-theme="amber"] .bg-blue-500\/10,
+[data-theme="amber"] .bg-purple-500\/10,
+[data-theme="amber"] .bg-purple-500\/20 {
+  background-color: rgba(245, 158, 11, 0.14) !important;
+}
+
+/* Border Accents */
+[data-theme="amber"] .border-sky-500\/20,
+[data-theme="amber"] .border-sky-500\/30,
+[data-theme="amber"] .border-sky-500\/40,
+[data-theme="amber"] .border-sky-500\/50,
+[data-theme="amber"] .border-sky-400\/30,
+[data-theme="amber"] .border-purple-500\/20,
+[data-theme="amber"] .border-purple-500\/30 {
+  border-color: rgba(245, 158, 11, 0.35) !important;
+}
+
+[data-theme="amber"] .hover\:border-sky-500\/40:hover,
+[data-theme="amber"] .hover\:border-sky-500\/50:hover,
+[data-theme="amber"] .group:hover .group-hover\:border-sky-500\/50 {
+  border-color: rgba(245, 158, 11, 0.6) !important;
+}
+
+[data-theme="amber"] .focus\:border-sky-500:focus {
+  border-color: #fbbf24 !important;
+  outline-color: #fbbf24 !important;
+}
+
+/* Glow Shadows */
+[data-theme="amber"] .shadow-sky-500\/20,
+[data-theme="amber"] .shadow-sky-500\/10,
+[data-theme="amber"] .shadow-sky-500\/30 {
+  box-shadow: 0 10px 25px -5px rgba(245, 158, 11, 0.25) !important;
+}
+
+/* Toast & Ring */
+[data-theme="amber"] #toast {
+  background-color: rgba(17, 17, 21, 0.98) !important;
+  border-color: rgba(245, 158, 11, 0.5) !important;
+  color: #fbbf24 !important;
+}
+
+[data-theme="amber"] .ring-sky-400\/30 {
+  --tw-ring-color: rgba(245, 158, 11, 0.4) !important;
+}
+
+/* Pure Obsidian Surfaces (Replacing Slate Blues) */
+[data-theme="amber"] .bg-slate-900,
+[data-theme="amber"] .bg-slate-900\/90,
+[data-theme="amber"] .bg-slate-900\/80,
+[data-theme="amber"] .bg-slate-900\/50 {
+  background-color: #121217 !important;
+}
+
+[data-theme="amber"] .bg-slate-950 {
+  background-color: #09090d !important;
+}
+
+[data-theme="amber"] .bg-slate-800,
+[data-theme="amber"] .bg-slate-800\/80,
+[data-theme="amber"] .bg-slate-800\/50 {
+  background-color: #191921 !important;
+}
+
+[data-theme="amber"] .border-slate-800,
+[data-theme="amber"] .border-slate-800\/80 {
+  border-color: rgba(255, 255, 255, 0.08) !important;
+}
+
+[data-theme="amber"] .border-slate-700,
+[data-theme="amber"] .border-slate-700\/80 {
+  border-color: rgba(255, 255, 255, 0.12) !important;
+}
+
+
