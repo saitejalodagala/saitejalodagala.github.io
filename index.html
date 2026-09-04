@@ -1,0 +1,1178 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sai Teja Lodagala | Systems & Control Engineering, IIT Bombay</title>
+  <meta name="description" content="Portfolio of Sai Teja Lodagala, M.Tech in Systems & Control Engineering at IIT Bombay. Specializing in Model Predictive Control (MPPI), Robotics, Machine Learning, Deep Learning, and Audio DSP.">
+  <meta property="og:title" content="Sai Teja Lodagala | Systems & Control Engineering, IIT Bombay">
+  <meta property="og:description" content="Model Predictive Control (MPPI), Robotics, Machine Learning, Deep Learning, and Autonomous Software Systems.">
+  <meta property="og:image" content="assets/profile.webp">
+  <meta property="og:type" content="website">
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              dark: '#080b11',
+              card: '#0d131f',
+              blue: '#38bdf8',
+              primary: '#0284c7'
+            }
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- KaTeX for Mathematical Equations -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.css">
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.js"></script>
+
+  <!-- Custom Stylesheet -->
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+
+<body class="bg-[#080b11] text-slate-200 min-h-screen flex flex-col selection:bg-sky-500 selection:text-slate-950">
+
+  <!-- Ambient Backdrop -->
+  <div class="ambient-bg"></div>
+  <div class="grid-overlay"></div>
+
+  <!-- Toast Notification -->
+  <div id="toast" class="fixed bottom-6 right-6 z-50 px-4 py-2.5 rounded-lg bg-slate-900/95 border border-sky-500/40 text-sky-300 text-xs font-mono shadow-2xl opacity-0 pointer-events-none transition-all duration-300 transform translate-y-2">
+    Copied to clipboard!
+  </div>
+
+  <!-- NAVIGATION BAR -->
+  <header class="sticky top-0 z-40 w-full glass-nav">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+      <!-- Logo / Name -->
+      <a href="#" class="flex items-center gap-2.5 group">
+        <div class="w-8 h-8 rounded-lg bg-slate-800 border border-slate-700 flex items-center justify-center font-bold text-sky-400 text-sm font-heading group-hover:border-sky-500/50 transition">
+          ST
+        </div>
+        <div>
+          <span class="font-bold text-sm tracking-tight font-heading text-slate-100 group-hover:text-sky-400 transition">Sai Teja Lodagala</span>
+          <span class="hidden sm:inline-block text-[10px] font-mono text-slate-400 ml-2 px-2 py-0.5 rounded bg-slate-800/80 border border-slate-700">IIT Bombay</span>
+        </div>
+      </a>
+
+      <!-- Desktop Navigation Links -->
+      <nav class="hidden md:flex items-center gap-7 text-xs font-medium text-slate-300">
+        <a href="#education" class="hover:text-sky-400 transition flex items-center gap-1.5">
+          Education
+        </a>
+        <a href="#projects" class="hover:text-sky-400 transition flex items-center gap-1.5">
+          Projects & Research
+        </a>
+        <a href="#skills" class="hover:text-sky-400 transition flex items-center gap-1.5">
+          Technical Skills
+        </a>
+        <a href="#extracurriculars" class="hover:text-sky-400 transition flex items-center gap-1.5">
+          Extracurriculars
+        </a>
+        <a href="#contact" class="hover:text-sky-400 transition flex items-center gap-1.5">
+          Contact
+        </a>
+      </nav>
+
+      <!-- Action Buttons -->
+      <div class="flex items-center gap-2.5">
+        <!-- Interactive Terminal Drawer Toggle -->
+        <button 
+          id="terminal-toggle" 
+          class="px-2.5 py-1.5 rounded-lg bg-slate-900 hover:bg-slate-800 border border-slate-700/80 text-slate-300 hover:text-sky-400 transition text-xs font-mono flex items-center gap-1.5"
+          title="Open Developer Terminal"
+        >
+          <svg class="w-3.5 h-3.5 text-sky-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 9l3 3-3 3m5 0h3M5 20h14a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
+          <span class="hidden sm:inline">&gt;_ CLI</span>
+        </button>
+
+        <!-- GitHub Profile -->
+        <a 
+          href="https://github.com/saitejalodagala" 
+          target="_blank" 
+          rel="noopener noreferrer"
+          class="p-2 rounded-lg bg-slate-900 hover:bg-slate-800 border border-slate-700/80 text-slate-300 hover:text-white transition"
+          title="GitHub Profile"
+        >
+          <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+        </a>
+
+        <!-- LinkedIn Profile -->
+        <a 
+          href="https://www.linkedin.com/in/saitejalodagala/" 
+          target="_blank" 
+          rel="noopener noreferrer"
+          class="p-2 rounded-lg bg-slate-900 hover:bg-slate-800 border border-slate-700/80 text-slate-300 hover:text-sky-400 transition"
+          title="LinkedIn Profile"
+        >
+          <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+        </a>
+
+        <!-- Mobile Menu Toggle -->
+        <button id="mobile-menu-toggle" class="md:hidden p-2 text-slate-400 hover:text-white">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile Dropdown Menu -->
+    <div id="mobile-menu" class="hidden md:hidden glass-panel mx-4 mb-4 p-4 border border-slate-800 space-y-3">
+      <a href="#education" class="block text-sm text-slate-300 hover:text-sky-400 py-1">Education</a>
+      <a href="#projects" class="block text-sm text-slate-300 hover:text-sky-400 py-1">Projects & Research</a>
+      <a href="#skills" class="block text-sm text-slate-300 hover:text-sky-400 py-1">Technical Skills</a>
+      <a href="#extracurriculars" class="block text-sm text-slate-300 hover:text-sky-400 py-1">Extracurriculars</a>
+      <a href="#contact" class="block text-sm text-slate-300 hover:text-sky-400 py-1">Contact</a>
+    </div>
+  </header>
+
+  <!-- MAIN CONTENT -->
+  <main class="flex-grow">
+
+    <!-- HERO SECTION -->
+    <section class="relative pt-14 pb-16 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
+        <!-- Text Bio & Details -->
+        <div class="lg:col-span-8 space-y-5">
+          <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-900 border border-slate-700/80 text-slate-300 text-xs font-mono">
+            <span class="w-2 h-2 rounded-full bg-sky-400"></span>
+            M.Tech Candidate • IIT Bombay (2025–2027)
+          </div>
+
+          <h1 class="text-4xl sm:text-6xl font-extrabold font-heading tracking-tight text-white leading-tight">
+            Sai Teja Lodagala
+          </h1>
+
+          <div class="text-base sm:text-lg font-semibold text-sky-400 font-mono">
+            Systems & Control Engineering, Indian Institute of Technology Bombay
+          </div>
+
+          <p class="text-sm sm:text-base text-slate-300 leading-relaxed max-w-2xl">
+            Graduate engineer specializing in <span class="text-white font-medium">Model Predictive Path Integral (MPPI) Control</span>, <span class="text-white font-medium">Nonlinear Dynamic Systems</span>, <span class="text-white font-medium">Humanoid Locomotion</span>, <span class="text-white font-medium">Physics-Informed Deep Learning</span>, and <span class="text-white font-medium">Psychoacoustic Audio Optimization</span>.
+          </p>
+
+          <!-- Contact & Action Buttons -->
+          <div class="flex flex-wrap items-center gap-3 pt-2">
+            <a 
+              href="mailto:saiteja9875@gmail.com" 
+              class="px-5 py-2.5 rounded-lg bg-sky-500 hover:bg-sky-400 text-slate-950 font-bold text-xs font-heading flex items-center gap-2 shadow-sm transition"
+            >
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+              saiteja9875@gmail.com
+            </a>
+
+            <a 
+              href="#projects" 
+              class="px-5 py-2.5 rounded-lg bg-slate-900 hover:bg-slate-800 border border-slate-700 text-slate-200 font-semibold text-xs font-heading flex items-center gap-2 transition"
+            >
+              <svg class="w-4 h-4 text-sky-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 7v10a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2h-6l-2-2H5a2 2 0 00-2 2z"/></svg>
+              View 12+ Projects
+            </a>
+
+            <a 
+              href="https://github.com/saitejalodagala" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              class="px-4 py-2.5 rounded-lg bg-slate-900 hover:bg-slate-800 border border-slate-700 text-slate-300 text-xs font-mono flex items-center gap-2 transition"
+            >
+              GitHub
+            </a>
+
+            <a 
+              href="https://www.linkedin.com/in/saitejalodagala/" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              class="px-4 py-2.5 rounded-lg bg-slate-900 hover:bg-slate-800 border border-slate-700 text-slate-300 hover:text-sky-400 text-xs font-mono flex items-center gap-2 transition"
+            >
+              LinkedIn
+            </a>
+          </div>
+        </div>
+
+        <!-- Avatar & Info Card -->
+        <div class="lg:col-span-4 flex flex-col items-center lg:items-end">
+          <div class="glass-card p-6 border border-slate-800 text-center w-full max-w-sm relative">
+            <div class="relative mx-auto w-44 h-44 mb-4">
+              <img 
+                src="assets/profile.webp" 
+                alt="Sai Teja Lodagala" 
+                onerror="this.src='assets/profile.jpg'"
+                class="w-44 h-44 rounded-xl object-cover object-top border border-slate-700/80 shadow-lg mx-auto"
+              />
+            </div>
+
+            <h3 class="text-lg font-bold font-heading text-white">Sai Teja Lodagala</h3>
+            <p class="text-xs text-sky-400 font-mono mt-0.5">IIT Bombay</p>
+            <p class="text-xs text-slate-400 mt-1">Systems & Control Engineering</p>
+
+            <div class="mt-4 pt-4 border-t border-slate-800 flex justify-center gap-5 text-slate-400 text-xs font-mono">
+              <span class="flex items-center gap-1.5">
+                <svg class="w-3.5 h-3.5 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+                Mumbai, India
+              </span>
+              <span class="flex items-center gap-1.5">
+                <svg class="w-3.5 h-3.5 text-sky-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                M.Tech (2025–2027)
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Quick Metrics Grid -->
+      <div id="hero-stats-container" class="grid grid-cols-2 md:grid-cols-4 gap-4 mt-12">
+        <div class="glass-card p-4 text-center border border-slate-800 hover:border-slate-700 transition">
+          <div class="text-xl font-bold font-heading text-white">IIT Bombay</div>
+          <div class="text-xs text-slate-400 font-medium mt-1">Institution</div>
+        </div>
+        <div class="glass-card p-4 text-center border border-slate-800 hover:border-slate-700 transition">
+          <div class="text-xl font-bold font-heading text-white">Systems & Control</div>
+          <div class="text-xs text-slate-400 font-medium mt-1">Specialization</div>
+        </div>
+        <div class="glass-card p-4 text-center border border-slate-800 hover:border-slate-700 transition">
+          <div class="text-xl font-bold font-heading text-white">12+ Repositories</div>
+          <div class="text-xs text-slate-400 font-medium mt-1">Open Source Projects</div>
+        </div>
+        <div class="glass-card p-4 text-center border border-slate-800 hover:border-slate-700 transition">
+          <div class="text-xl font-bold font-heading text-white">Control • AI • DSP</div>
+          <div class="text-xs text-slate-400 font-medium mt-1">Core Focus Areas</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- EDUCATION & ACADEMIC BACKGROUND -->
+    <section id="education" class="py-16 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+      <div class="text-center max-w-2xl mx-auto mb-10">
+        <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-slate-900 border border-slate-700/80 text-slate-300 text-xs font-mono mb-3">
+          Academic Foundations
+        </div>
+        <h2 class="text-3xl sm:text-4xl font-bold font-heading text-white">Education</h2>
+        <p class="text-sm text-slate-400 mt-1">
+          Postgraduate & undergraduate engineering training.
+        </p>
+      </div>
+
+      <div id="education-grid" class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <!-- IIT Bombay Card -->
+        <div class="glass-card p-6 border border-slate-800 hover:border-slate-700 transition relative group">
+          <div class="flex flex-wrap items-center justify-between gap-2 mb-3">
+            <span class="px-2.5 py-0.5 text-xs font-semibold font-mono rounded bg-slate-900 text-sky-400 border border-slate-700">
+              Post Graduation
+            </span>
+            <span class="text-xs text-slate-400 font-mono">
+              2025 – 2027
+            </span>
+          </div>
+          <h3 class="text-xl font-bold font-heading text-white group-hover:text-sky-400 transition">
+            M.Tech in Systems & Control Engineering
+          </h3>
+          <p class="text-xs text-slate-300 font-medium font-mono mt-1 mb-3">
+            Indian Institute of Technology Bombay (IIT Bombay)
+          </p>
+          <ul class="space-y-1.5 text-xs text-slate-300">
+            <li class="flex items-start gap-2">
+              <span class="w-1.5 h-1.5 rounded-full bg-sky-400 mt-1.5 shrink-0"></span>
+              <span>Specialization in Systems & Control Engineering with research in Intelligent Audio Quality Optimization under Prof. Raj Anguluri.</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <span class="w-1.5 h-1.5 rounded-full bg-sky-400 mt-1.5 shrink-0"></span>
+              <span>Focus on Model Predictive Control, Optimal Control, Machine Learning, Digital Signal Processing, and Non-linear Dynamics.</span>
+            </li>
+          </ul>
+        </div>
+
+        <!-- ANITS Card -->
+        <div class="glass-card p-6 border border-slate-800 hover:border-slate-700 transition relative group">
+          <div class="flex flex-wrap items-center justify-between gap-2 mb-3">
+            <span class="px-2.5 py-0.5 text-xs font-semibold font-mono rounded bg-slate-900 text-slate-300 border border-slate-700">
+              Graduation
+            </span>
+            <span class="text-xs text-slate-400 font-mono">
+              2019 – 2023
+            </span>
+          </div>
+          <h3 class="text-xl font-bold font-heading text-white group-hover:text-sky-400 transition">
+            B.Tech in Electronics & Communication Engineering (ECE)
+          </h3>
+          <p class="text-xs text-slate-300 font-medium font-mono mt-1 mb-3">
+            Anil Neerukonda Institute of Technology and Sciences (ANITS), Andhra University
+          </p>
+          <ul class="space-y-1.5 text-xs text-slate-300">
+            <li class="flex items-start gap-2">
+              <span class="w-1.5 h-1.5 rounded-full bg-sky-400 mt-1.5 shrink-0"></span>
+              <span>Core training in Signals & Systems, Control Systems, Digital Communication, and Microprocessors.</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <span class="w-1.5 h-1.5 rounded-full bg-sky-400 mt-1.5 shrink-0"></span>
+              <span>Capstone Project: Farm Monitoring & IoT Crop Health Anomaly Detection System using CNNs.</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- RESEARCH & KEY PROJECTS -->
+    <section id="projects" class="py-16 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+      <div class="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-8">
+        <div>
+          <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-slate-900 border border-slate-700/80 text-slate-300 text-xs font-mono mb-3">
+            Portfolio
+          </div>
+          <h2 class="text-3xl sm:text-4xl font-bold font-heading text-white">Projects & Research</h2>
+          <p class="text-sm text-slate-400 mt-1 max-w-xl">
+            M.Tech research at IIT Bombay, open-source control suites, robotics platforms, and deep learning architectures.
+          </p>
+        </div>
+
+        <!-- Search Bar -->
+        <div class="relative w-full md:w-72">
+          <svg class="w-4 h-4 absolute left-3.5 top-3 text-slate-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg>
+          <input 
+            id="project-search" 
+            type="text" 
+            placeholder="Search projects, stack..." 
+            class="w-full pl-10 pr-4 py-2 text-xs font-mono rounded-lg bg-slate-900/90 border border-slate-800 focus:border-sky-500 focus:outline-none text-slate-200"
+          />
+        </div>
+      </div>
+
+      <!-- Filter Tabs -->
+      <div class="flex flex-wrap gap-2 mb-8">
+        <button data-category="all" class="active px-3.5 py-1.5 text-xs font-semibold font-mono rounded-lg glass-pill">
+          All Projects (12)
+        </button>
+        <button data-category="mtech" class="px-3.5 py-1.5 text-xs font-semibold font-mono rounded-lg glass-pill">
+          M.Tech Research (1)
+        </button>
+        <button data-category="control" class="px-3.5 py-1.5 text-xs font-semibold font-mono rounded-lg glass-pill">
+          Systems & Control (5)
+        </button>
+        <button data-category="ai" class="px-3.5 py-1.5 text-xs font-semibold font-mono rounded-lg glass-pill">
+          Machine Learning & AI (4)
+        </button>
+        <button data-category="software" class="px-3.5 py-1.5 text-xs font-semibold font-mono rounded-lg glass-pill">
+          Developer Platforms & Mini (2)
+        </button>
+      </div>
+
+      <!-- Projects Grid -->
+      <div id="projects-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        
+        <!-- Project 1: Swar Studio (M.Tech Research at IIT Bombay - FIRST PROJECT) -->
+        <div class="glass-card flex flex-col justify-between overflow-hidden group border border-slate-700/80 hover:border-sky-500/40" data-project-card="swar-studio" data-category="mtech">
+          <div class="p-6">
+            <div class="flex items-center justify-between gap-2 mb-3">
+              <span class="px-2.5 py-0.5 text-xs font-semibold font-mono rounded bg-slate-900 text-sky-400 border border-slate-700">
+                ⭐ M.Tech Research (IIT Bombay)
+              </span>
+              <span class="text-xs text-slate-400 font-mono">Prof. Raj Anguluri</span>
+            </div>
+            <h3 class="text-xl font-bold font-heading text-white group-hover:text-sky-400 transition mb-2">
+              Swar Studio (Intelligent Audio Quality Optimization Platform)
+            </h3>
+            <p class="text-xs font-medium text-slate-400 mb-4 font-mono">
+              Real-Time Neural Denoising, 4-Stem Separation & Hearing-Inspired Psychoacoustics
+            </p>
+            <ul class="space-y-2 text-xs text-slate-300 mb-6">
+              <li class="flex items-start gap-2">
+                <span class="w-1.5 h-1.5 rounded-full bg-sky-400 mt-1.5 shrink-0"></span>
+                <span class="leading-relaxed">Engineered a real-time neural audio denoising and 4-stem source separation platform utilizing Complex Spectrogram UNet architectures, achieving processing latency under 20 milliseconds.</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <span class="w-1.5 h-1.5 rounded-full bg-sky-400 mt-1.5 shrink-0"></span>
+                <span class="leading-relaxed">Implemented dynamic audio mastering protocols integrating hearing-inspired psychoacoustic ISO 226 contours for artifact-free and perfectly normalized broadcast-quality loudness.</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <span class="w-1.5 h-1.5 rounded-full bg-sky-400 mt-1.5 shrink-0"></span>
+                <span class="leading-relaxed">Architected high-throughput cloud-native REST and WebSocket API endpoints using FastAPI and Kubernetes, facilitating highly scalable live-stream audio processing.</span>
+              </li>
+            </ul>
+            <div class="flex flex-wrap gap-1.5 mb-2">
+              <span class="px-2 py-0.5 text-[11px] font-mono rounded bg-slate-900 text-slate-300 border border-slate-800">Python</span>
+              <span class="px-2 py-0.5 text-[11px] font-mono rounded bg-slate-900 text-slate-300 border border-slate-800">PyTorch</span>
+              <span class="px-2 py-0.5 text-[11px] font-mono rounded bg-slate-900 text-slate-300 border border-slate-800">FastAPI</span>
+              <span class="px-2 py-0.5 text-[11px] font-mono rounded bg-slate-900 text-slate-300 border border-slate-800">Docker</span>
+              <span class="px-2 py-0.5 text-[11px] font-mono rounded bg-slate-900 text-slate-300 border border-slate-800">Kubernetes</span>
+              <span class="px-2 py-0.5 text-[11px] font-mono rounded bg-slate-900 text-slate-300 border border-slate-800">DSP</span>
+            </div>
+          </div>
+          <div class="px-6 pb-6 pt-3 bg-slate-950/40 flex items-center justify-between gap-3 border-t border-slate-800">
+            <button onclick="openProjectModal('swar-studio')" class="flex-1 py-2 px-3 text-xs font-semibold rounded-lg bg-slate-900 hover:bg-slate-800 text-sky-400 border border-slate-700/80 flex items-center justify-center gap-1.5 transition">
+              Technical Deep Dive
+            </button>
+            <a href="https://github.com/saitejalodagala/swar-studio" target="_blank" rel="noopener noreferrer" class="p-2 text-xs rounded-lg bg-slate-900 hover:bg-slate-800 text-slate-300 border border-slate-700/80 flex items-center justify-center transition" title="View Source on GitHub">
+              <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+            </a>
+          </div>
+        </div>
+
+        <!-- Project 2: Autonomous Vehicle ML-MPC & MPPI -->
+        <div class="glass-card flex flex-col justify-between overflow-hidden group border border-slate-800 hover:border-sky-500/40" data-project-card="autonomous-vehicle-ml-mpc" data-category="control">
+          <div class="p-6">
+            <div class="flex items-center justify-between gap-2 mb-3">
+              <span class="px-2.5 py-0.5 text-xs font-semibold font-mono rounded bg-slate-900 text-slate-300 border border-slate-700">
+                Robotics & Control
+              </span>
+              <span class="text-xs text-slate-400 font-mono">Autonomous Systems</span>
+            </div>
+            <h3 class="text-xl font-bold font-heading text-white group-hover:text-sky-400 transition mb-2">
+              Autonomous Vehicle ML-MPC & MPPI Framework
+            </h3>
+            <p class="text-xs font-medium text-slate-400 mb-4 font-mono">
+              Physics-Informed Deep Residual Dynamics & Batch-Vectorized MPPI Control with Pacejka Tire Physics
+            </p>
+            <ul class="space-y-2 text-xs text-slate-300 mb-6">
+              <li class="flex items-start gap-2">
+                <span class="w-1.5 h-1.5 rounded-full bg-sky-400 mt-1.5 shrink-0"></span>
+                <span class="leading-relaxed">Engineered a 6-DOF planar dynamic bicycle model integrating Pacejka Magic Formula tire curves with Runge-Kutta 4th Order (RK4) numerical integration.</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <span class="w-1.5 h-1.5 rounded-full bg-sky-400 mt-1.5 shrink-0"></span>
+                <span class="leading-relaxed">Implemented batch-vectorized MPPI controller in PyTorch evaluating 5,000 candidate trajectories per control cycle with non-convex obstacle repulsion fields.</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <span class="w-1.5 h-1.5 rounded-full bg-sky-400 mt-1.5 shrink-0"></span>
+                <span class="leading-relaxed">Designed Deep Residual MLPs with LayerNorm and GELU to dynamically compensate for unmodeled aerodynamic drag and surface friction variations.</span>
+              </li>
+            </ul>
+            <div class="flex flex-wrap gap-1.5 mb-2">
+              <span class="px-2 py-0.5 text-[11px] font-mono rounded bg-slate-900 text-slate-300 border border-slate-800">Python</span>
+              <span class="px-2 py-0.5 text-[11px] font-mono rounded bg-slate-900 text-slate-300 border border-slate-800">PyTorch</span>
+              <span class="px-2 py-0.5 text-[11px] font-mono rounded bg-slate-900 text-slate-300 border border-slate-800">MPPI</span>
+              <span class="px-2 py-0.5 text-[11px] font-mono rounded bg-slate-900 text-slate-300 border border-slate-800">Pacejka Dynamics</span>
+              <span class="px-2 py-0.5 text-[11px] font-mono rounded bg-slate-900 text-slate-300 border border-slate-800">FastAPI</span>
+            </div>
+          </div>
+          <div class="px-6 pb-6 pt-3 bg-slate-950/40 flex items-center justify-between gap-3 border-t border-slate-800">
+            <button onclick="openProjectModal('autonomous-vehicle-ml-mpc')" class="flex-1 py-2 px-3 text-xs font-semibold rounded-lg bg-slate-900 hover:bg-slate-800 text-sky-400 border border-slate-700/80 flex items-center justify-center gap-1.5 transition">
+              Technical Deep Dive
+            </button>
+            <a href="https://github.com/saitejalodagala/autonomous-vehicle-ml-mpc" target="_blank" rel="noopener noreferrer" class="p-2 text-xs rounded-lg bg-slate-900 hover:bg-slate-800 text-slate-300 border border-slate-700/80 flex items-center justify-center transition" title="View Source on GitHub">
+              <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+            </a>
+          </div>
+        </div>
+
+        <!-- Project 3: Bipedal Locomotion Control -->
+        <div class="glass-card flex flex-col justify-between overflow-hidden group border border-slate-800 hover:border-sky-500/40" data-project-card="bipedal-locomotion-control" data-category="control">
+          <div class="p-6">
+            <div class="flex items-center justify-between gap-2 mb-3">
+              <span class="px-2.5 py-0.5 text-xs font-semibold font-mono rounded bg-slate-900 text-slate-300 border border-slate-700">
+                Humanoid Robotics
+              </span>
+              <span class="text-xs text-slate-400 font-mono">Simscape Multibody</span>
+            </div>
+            <h3 class="text-xl font-bold font-heading text-white group-hover:text-sky-400 transition mb-2">
+              Bipedal Locomotion & Humanoid Control Suite
+            </h3>
+            <p class="text-xs font-medium text-slate-400 mb-4 font-mono">
+              5-Link Planar Underactuated Biped (HZD) & 3D LIPM with ZMP Preview Control in Simscape
+            </p>
+            <ul class="space-y-2 text-xs text-slate-300 mb-6">
+              <li class="flex items-start gap-2">
+                <span class="w-1.5 h-1.5 rounded-full bg-sky-400 mt-1.5 shrink-0"></span>
+                <span class="leading-relaxed">Derived complete 5-link Lagrangian equations of motion with discrete heel-strike impact reset maps and Poincaré limit-cycle stability analysis.</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <span class="w-1.5 h-1.5 rounded-full bg-sky-400 mt-1.5 shrink-0"></span>
+                <span class="leading-relaxed">Implemented input-output feedback linearization enforcing virtual constraints (Hybrid Zero Dynamics) for stable, periodic underactuated planar walking.</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <span class="w-1.5 h-1.5 rounded-full bg-sky-400 mt-1.5 shrink-0"></span>
+                <span class="leading-relaxed">Developed 3D Linear Inverted Pendulum Model (LIPM) with discrete Riccati ZMP preview control and 12-DOF inverse kinematics in Simscape Multibody.</span>
+              </li>
+            </ul>
+            <div class="flex flex-wrap gap-1.5 mb-2">
+              <span class="px-2 py-0.5 text-[11px] font-mono rounded bg-slate-900 text-slate-300 border border-slate-800">MATLAB</span>
+              <span class="px-2 py-0.5 text-[11px] font-mono rounded bg-slate-900 text-slate-300 border border-slate-800">Simulink</span>
+              <span class="px-2 py-0.5 text-[11px] font-mono rounded bg-slate-900 text-slate-300 border border-slate-800">Simscape</span>
+              <span class="px-2 py-0.5 text-[11px] font-mono rounded bg-slate-900 text-slate-300 border border-slate-800">HZD</span>
+              <span class="px-2 py-0.5 text-[11px] font-mono rounded bg-slate-900 text-slate-300 border border-slate-800">ZMP</span>
+            </div>
+          </div>
+          <div class="px-6 pb-6 pt-3 bg-slate-950/40 flex items-center justify-between gap-3 border-t border-slate-800">
+            <button onclick="openProjectModal('bipedal-locomotion-control')" class="flex-1 py-2 px-3 text-xs font-semibold rounded-lg bg-slate-900 hover:bg-slate-800 text-sky-400 border border-slate-700/80 flex items-center justify-center gap-1.5 transition">
+              Technical Deep Dive
+            </button>
+            <a href="https://github.com/saitejalodagala/bipedal-locomotion-control" target="_blank" rel="noopener noreferrer" class="p-2 text-xs rounded-lg bg-slate-900 hover:bg-slate-800 text-slate-300 border border-slate-700/80 flex items-center justify-center transition" title="View Source on GitHub">
+              <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+            </a>
+          </div>
+        </div>
+
+        <!-- Project 4: Inverted Pendulum Control -->
+        <div class="glass-card flex flex-col justify-between overflow-hidden group border border-slate-800 hover:border-sky-500/40" data-project-card="inverted_pendulum_control" data-category="control">
+          <div class="p-6">
+            <div class="flex items-center justify-between gap-2 mb-3">
+              <span class="px-2.5 py-0.5 text-xs font-semibold font-mono rounded bg-slate-900 text-slate-300 border border-slate-700">
+                Optimal Control
+              </span>
+              <span class="text-xs text-slate-400 font-mono">Control Systems</span>
+            </div>
+            <h3 class="text-xl font-bold font-heading text-white group-hover:text-sky-400 transition mb-2">
+              Inverted Pendulum Cart-Pole Control Suite
+            </h3>
+            <p class="text-xs font-medium text-slate-400 mb-4 font-mono">
+              Nonlinear Lagrangian Modeling, Dual-Loop PID, LQR Optimal Control & LQG Kalman Filter
+            </p>
+            <ul class="space-y-2 text-xs text-slate-300 mb-6">
+              <li class="flex items-start gap-2">
+                <span class="w-1.5 h-1.5 rounded-full bg-sky-400 mt-1.5 shrink-0"></span>
+                <span class="leading-relaxed">Derived first-principles nonlinear equations of motion using Euler-Lagrange mechanics and performed Taylor series Jacobian state-space linearization.</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <span class="w-1.5 h-1.5 rounded-full bg-sky-400 mt-1.5 shrink-0"></span>
+                <span class="leading-relaxed">Designed and tuned Dual-Loop Cascaded PID and Linear Quadratic Regulator (LQR) with feedforward tracking for cart regulation and pole stabilization.</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <span class="w-1.5 h-1.5 rounded-full bg-sky-400 mt-1.5 shrink-0"></span>
+                <span class="leading-relaxed">Implemented Linear Quadratic Gaussian (LQG) controller integrating a Kalman filter for optimal state estimation under measurement noise.</span>
+              </li>
+            </ul>
+            <div class="flex flex-wrap gap-1.5 mb-2">
+              <span class="px-2 py-0.5 text-[11px] font-mono rounded bg-slate-900 text-slate-300 border border-slate-800">MATLAB</span>
+              <span class="px-2 py-0.5 text-[11px] font-mono rounded bg-slate-900 text-slate-300 border border-slate-800">Simulink</span>
+              <span class="px-2 py-0.5 text-[11px] font-mono rounded bg-slate-900 text-slate-300 border border-slate-800">LQR</span>
+              <span class="px-2 py-0.5 text-[11px] font-mono rounded bg-slate-900 text-slate-300 border border-slate-800">LQG</span>
+              <span class="px-2 py-0.5 text-[11px] font-mono rounded bg-slate-900 text-slate-300 border border-slate-800">Kalman Filter</span>
+            </div>
+          </div>
+          <div class="px-6 pb-6 pt-3 bg-slate-950/40 flex items-center justify-between gap-3 border-t border-slate-800">
+            <button onclick="openProjectModal('inverted_pendulum_control')" class="flex-1 py-2 px-3 text-xs font-semibold rounded-lg bg-slate-900 hover:bg-slate-800 text-sky-400 border border-slate-700/80 flex items-center justify-center gap-1.5 transition">
+              Technical Deep Dive
+            </button>
+            <a href="https://github.com/saitejalodagala/inverted_pendulum_control" target="_blank" rel="noopener noreferrer" class="p-2 text-xs rounded-lg bg-slate-900 hover:bg-slate-800 text-slate-300 border border-slate-700/80 flex items-center justify-center transition" title="View Source on GitHub">
+              <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+            </a>
+          </div>
+        </div>
+
+        <!-- Project 5: V2V Communication -->
+        <div class="glass-card flex flex-col justify-between overflow-hidden group border border-slate-800 hover:border-sky-500/40" data-project-card="v2v-communication" data-category="control">
+          <div class="p-6">
+            <div class="flex items-center justify-between gap-2 mb-3">
+              <span class="px-2.5 py-0.5 text-xs font-semibold font-mono rounded bg-slate-900 text-slate-300 border border-slate-700">
+                Networked Control
+              </span>
+              <span class="text-xs text-slate-400 font-mono">Connected Vehicles</span>
+            </div>
+            <h3 class="text-xl font-bold font-heading text-white group-hover:text-sky-400 transition mb-2">
+              V2V Communication & Connected Vehicle Platooning
+            </h3>
+            <p class="text-xs font-medium text-slate-400 mb-4 font-mono">
+              Cooperative Adaptive Cruise Control (CACC), String Stability & Distributed MPC
+            </p>
+            <ul class="space-y-2 text-xs text-slate-300 mb-6">
+              <li class="flex items-start gap-2">
+                <span class="w-1.5 h-1.5 rounded-full bg-sky-400 mt-1.5 shrink-0"></span>
+                <span class="leading-relaxed">Engineered Cooperative Adaptive Cruise Control (CACC) proving L2 string stability across all frequencies, enabling safe platooning at ultra-tight headways (h = 0.3s).</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <span class="w-1.5 h-1.5 rounded-full bg-sky-400 mt-1.5 shrink-0"></span>
+                <span class="leading-relaxed">Implemented Distributed MPC (D-MPC) with state extrapolation algorithms compensating for wireless network transmission latency and packet loss.</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <span class="w-1.5 h-1.5 rounded-full bg-sky-400 mt-1.5 shrink-0"></span>
+                <span class="leading-relaxed">Designed a Chi-Square residual anomaly detector to identify and isolate False Data Injection (FDI) cyber-attacks on vehicle telemetry.</span>
+              </li>
+            </ul>
+            <div class="flex flex-wrap gap-1.5 mb-2">
+              <span class="px-2 py-0.5 text-[11px] font-mono rounded bg-slate-900 text-slate-300 border border-slate-800">Python</span>
+              <span class="px-2 py-0.5 text-[11px] font-mono rounded bg-slate-900 text-slate-300 border border-slate-800">Connected Vehicles</span>
+              <span class="px-2 py-0.5 text-[11px] font-mono rounded bg-slate-900 text-slate-300 border border-slate-800">CACC</span>
+              <span class="px-2 py-0.5 text-[11px] font-mono rounded bg-slate-900 text-slate-300 border border-slate-800">String Stability</span>
+              <span class="px-2 py-0.5 text-[11px] font-mono rounded bg-slate-900 text-slate-300 border border-slate-800">D-MPC</span>
+            </div>
+          </div>
+          <div class="px-6 pb-6 pt-3 bg-slate-950/40 flex items-center justify-between gap-3 border-t border-slate-800">
+            <button onclick="openProjectModal('v2v-communication')" class="flex-1 py-2 px-3 text-xs font-semibold rounded-lg bg-slate-900 hover:bg-slate-800 text-sky-400 border border-slate-700/80 flex items-center justify-center gap-1.5 transition">
+              Technical Deep Dive
+            </button>
+            <a href="https://github.com/saitejalodagala/v2v-communication" target="_blank" rel="noopener noreferrer" class="p-2 text-xs rounded-lg bg-slate-900 hover:bg-slate-800 text-slate-300 border border-slate-700/80 flex items-center justify-center transition" title="View Source on GitHub">
+              <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+            </a>
+          </div>
+        </div>
+
+        <!-- Project 6: BLDC Motor Control -->
+        <div class="glass-card flex flex-col justify-between overflow-hidden group border border-slate-800 hover:border-sky-500/40" data-project-card="bldc-simulink-speed-control" data-category="control">
+          <div class="p-6">
+            <div class="flex items-center justify-between gap-2 mb-3">
+              <span class="px-2.5 py-0.5 text-xs font-semibold font-mono rounded bg-slate-900 text-slate-300 border border-slate-700">
+                Power Electronics
+              </span>
+              <span class="text-xs text-slate-400 font-mono">Motor Drives</span>
+            </div>
+            <h3 class="text-xl font-bold font-heading text-white group-hover:text-sky-400 transition mb-2">
+              BLDC Motor Speed Control with PWM & Hall Commutation
+            </h3>
+            <p class="text-xs font-medium text-slate-400 mb-4 font-mono">
+              6-Step Hall Commutation, 20 kHz PWM Chopping & Closed-Loop Anti-Windup PI Control
+            </p>
+            <ul class="space-y-2 text-xs text-slate-300 mb-6">
+              <li class="flex items-start gap-2">
+                <span class="w-1.5 h-1.5 rounded-full bg-sky-400 mt-1.5 shrink-0"></span>
+                <span class="leading-relaxed">Modeled 3-phase BLDC stator electrical dynamics and trapezoidal back-EMF with 120° electronic commutation and Hall sensor sector decoding.</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <span class="w-1.5 h-1.5 rounded-full bg-sky-400 mt-1.5 shrink-0"></span>
+                <span class="leading-relaxed">Implemented high-side 20 kHz PWM chopping for 3-phase Voltage Source Inverter (VSI) power stage.</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <span class="w-1.5 h-1.5 rounded-full bg-sky-400 mt-1.5 shrink-0"></span>
+                <span class="leading-relaxed">Designed a closed-loop PI speed controller equipped with dynamic anti-windup clamping to eliminate integrator saturation under step load disturbances.</span>
+              </li>
+            </ul>
+            <div class="flex flex-wrap gap-1.5 mb-2">
+              <span class="px-2 py-0.5 text-[11px] font-mono rounded bg-slate-900 text-slate-300 border border-slate-800">MATLAB</span>
+              <span class="px-2 py-0.5 text-[11px] font-mono rounded bg-slate-900 text-slate-300 border border-slate-800">Simulink</span>
+              <span class="px-2 py-0.5 text-[11px] font-mono rounded bg-slate-900 text-slate-300 border border-slate-800">BLDC Motor</span>
+              <span class="px-2 py-0.5 text-[11px] font-mono rounded bg-slate-900 text-slate-300 border border-slate-800">PWM</span>
+              <span class="px-2 py-0.5 text-[11px] font-mono rounded bg-slate-900 text-slate-300 border border-slate-800">PI Controller</span>
+            </div>
+          </div>
+          <div class="px-6 pb-6 pt-3 bg-slate-950/40 flex items-center justify-between gap-3 border-t border-slate-800">
+            <button onclick="openProjectModal('bldc-simulink-speed-control')" class="flex-1 py-2 px-3 text-xs font-semibold rounded-lg bg-slate-900 hover:bg-slate-800 text-sky-400 border border-slate-700/80 flex items-center justify-center gap-1.5 transition">
+              Technical Deep Dive
+            </button>
+            <a href="https://github.com/saitejalodagala/bldc-simulink-speed-control" target="_blank" rel="noopener noreferrer" class="p-2 text-xs rounded-lg bg-slate-900 hover:bg-slate-800 text-slate-300 border border-slate-700/80 flex items-center justify-center transition" title="View Source on GitHub">
+              <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+            </a>
+          </div>
+        </div>
+
+        <!-- Project 7: Omni Code -->
+        <div class="glass-card flex flex-col justify-between overflow-hidden group border border-slate-800 hover:border-sky-500/40" data-project-card="omni-code" data-category="ai">
+          <div class="p-6">
+            <div class="flex items-center justify-between gap-2 mb-3">
+              <span class="px-2.5 py-0.5 text-xs font-semibold font-mono rounded bg-slate-900 text-slate-300 border border-slate-700">
+                AI Developer Tooling
+              </span>
+              <span class="text-xs text-slate-400 font-mono">Self Project</span>
+            </div>
+            <h3 class="text-xl font-bold font-heading text-white group-hover:text-sky-400 transition mb-2">
+              Omni Code (AI Code Collaboration Platform)
+            </h3>
+            <p class="text-xs font-medium text-slate-400 mb-4 font-mono">
+              Autonomous Engineering Workspace: Distributed Code Management × Living Specs × Cursor AI
+            </p>
+            <ul class="space-y-2 text-xs text-slate-300 mb-6">
+              <li class="flex items-start gap-2">
+                <span class="w-1.5 h-1.5 rounded-full bg-sky-400 mt-1.5 shrink-0"></span>
+                <span class="leading-relaxed">Engineered an autonomous engineering workspace integrating distributed code management and interactive PR reviews with real-time generative LLM intelligence to accelerate developer workflows.</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <span class="w-1.5 h-1.5 rounded-full bg-sky-400 mt-1.5 shrink-0"></span>
+                <span class="leading-relaxed">Architected a semantic natural language search engine and context-aware auto-documentation generator, ensuring repository architectures and living specifications remain consistently synchronized.</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <span class="w-1.5 h-1.5 rounded-full bg-sky-400 mt-1.5 shrink-0"></span>
+                <span class="leading-relaxed">Developed a one-click visual diff application mechanism leveraging continuous underlying AST diagnostics to instantly deploy LLM-suggested architectural modifications.</span>
+              </li>
+            </ul>
+            <div class="flex flex-wrap gap-1.5 mb-2">
+              <span class="px-2 py-0.5 text-[11px] font-mono rounded bg-slate-900 text-slate-300 border border-slate-800">Python</span>
+              <span class="px-2 py-0.5 text-[11px] font-mono rounded bg-slate-900 text-slate-300 border border-slate-800">Cursor AI</span>
+              <span class="px-2 py-0.5 text-[11px] font-mono rounded bg-slate-900 text-slate-300 border border-slate-800">Git</span>
+              <span class="px-2 py-0.5 text-[11px] font-mono rounded bg-slate-900 text-slate-300 border border-slate-800">LLMs</span>
+              <span class="px-2 py-0.5 text-[11px] font-mono rounded bg-slate-900 text-slate-300 border border-slate-800">AST Diagnostics</span>
+            </div>
+          </div>
+          <div class="px-6 pb-6 pt-3 bg-slate-950/40 flex items-center justify-between gap-3 border-t border-slate-800">
+            <button onclick="openProjectModal('omni-code')" class="flex-1 py-2 px-3 text-xs font-semibold rounded-lg bg-slate-900 hover:bg-slate-800 text-sky-400 border border-slate-700/80 flex items-center justify-center gap-1.5 transition">
+              Technical Deep Dive
+            </button>
+            <a href="https://github.com/saitejalodagala/omni-code" target="_blank" rel="noopener noreferrer" class="p-2 text-xs rounded-lg bg-slate-900 hover:bg-slate-800 text-slate-300 border border-slate-700/80 flex items-center justify-center transition" title="View Source on GitHub">
+              <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+            </a>
+          </div>
+        </div>
+
+        <!-- Project 8: Fraud Sentinel AI -->
+        <div class="glass-card flex flex-col justify-between overflow-hidden group border border-slate-800 hover:border-sky-500/40" data-project-card="fraud-sentinel-ai" data-category="ai">
+          <div class="p-6">
+            <div class="flex items-center justify-between gap-2 mb-3">
+              <span class="px-2.5 py-0.5 text-xs font-semibold font-mono rounded bg-slate-900 text-slate-300 border border-slate-700">
+                FinTech Cybersecurity
+              </span>
+              <span class="text-xs text-slate-400 font-mono">Self Project</span>
+            </div>
+            <h3 class="text-xl font-bold font-heading text-white group-hover:text-sky-400 transition mb-2">
+              Fraud Sentinel AI (Dual-Engine Fraud Detection System for Banking)
+            </h3>
+            <p class="text-xs font-medium text-slate-400 mb-4 font-mono">
+              Cross-Channel Threat Fusion: NLP Smishing Detection × Behavioral Transaction Anomaly Scoring
+            </p>
+            <ul class="space-y-2 text-xs text-slate-300 mb-6">
+              <li class="flex items-start gap-2">
+                <span class="w-1.5 h-1.5 rounded-full bg-sky-400 mt-1.5 shrink-0"></span>
+                <span class="leading-relaxed">Designed a robust cross-channel threat fusion engine seamlessly correlating NLP-driven SMS smishing and phishing detection with behavioral bank transaction anomalies.</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <span class="w-1.5 h-1.5 rounded-full bg-sky-400 mt-1.5 shrink-0"></span>
+                <span class="leading-relaxed">Deployed a dual machine learning pipeline combining Isolation Forest and Random Forest algorithms, executing automated account quarantines based on real-time risk thresholds.</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <span class="w-1.5 h-1.5 rounded-full bg-sky-400 mt-1.5 shrink-0"></span>
+                <span class="leading-relaxed">Constructed an interactive Streamlit SOC dashboard continuously streaming live telemetry and behavioral baselines to visually simulate kill-chain events.</span>
+              </li>
+            </ul>
+            <div class="flex flex-wrap gap-1.5 mb-2">
+              <span class="px-2 py-0.5 text-[11px] font-mono rounded bg-slate-900 text-slate-300 border border-slate-800">Python</span>
+              <span class="px-2 py-0.5 text-[11px] font-mono rounded bg-slate-900 text-slate-300 border border-slate-800">FastAPI</span>
+              <span class="px-2 py-0.5 text-[11px] font-mono rounded bg-slate-900 text-slate-300 border border-slate-800">Scikit-learn</span>
+              <span class="px-2 py-0.5 text-[11px] font-mono rounded bg-slate-900 text-slate-300 border border-slate-800">TF-IDF</span>
+              <span class="px-2 py-0.5 text-[11px] font-mono rounded bg-slate-900 text-slate-300 border border-slate-800">Isolation Forest</span>
+            </div>
+          </div>
+          <div class="px-6 pb-6 pt-3 bg-slate-950/40 flex items-center justify-between gap-3 border-t border-slate-800">
+            <button onclick="openProjectModal('fraud-sentinel-ai')" class="flex-1 py-2 px-3 text-xs font-semibold rounded-lg bg-slate-900 hover:bg-slate-800 text-sky-400 border border-slate-700/80 flex items-center justify-center gap-1.5 transition">
+              Technical Deep Dive
+            </button>
+            <a href="https://github.com/saitejalodagala/fraud-detection-system" target="_blank" rel="noopener noreferrer" class="p-2 text-xs rounded-lg bg-slate-900 hover:bg-slate-800 text-slate-300 border border-slate-700/80 flex items-center justify-center transition" title="View Source on GitHub">
+              <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+            </a>
+          </div>
+        </div>
+
+        <!-- Project 9: Adversarial FGSM -->
+        <div class="glass-card flex flex-col justify-between overflow-hidden group border border-slate-800 hover:border-sky-500/40" data-project-card="adversarial-fgsm" data-category="ai">
+          <div class="p-6">
+            <div class="flex items-center justify-between gap-2 mb-3">
+              <span class="px-2.5 py-0.5 text-xs font-semibold font-mono rounded bg-slate-900 text-slate-300 border border-slate-700">
+                Deep Learning Research
+              </span>
+              <span class="text-xs text-slate-400 font-mono">Prof. Abir De</span>
+            </div>
+            <h3 class="text-xl font-bold font-heading text-white group-hover:text-sky-400 transition mb-2">
+              Adversarial Examples in Neural Networks (Reproducing FGSM)
+            </h3>
+            <p class="text-xs font-medium text-slate-400 mb-4 font-mono">
+              Empirical Reproduction of Goodfellow (ICLR 2015) FGSM, 8 Attack Vectors & Defense Zoo
+            </p>
+            <ul class="space-y-2 text-xs text-slate-300 mb-6">
+              <li class="flex items-start gap-2">
+                <span class="w-1.5 h-1.5 rounded-full bg-sky-400 mt-1.5 shrink-0"></span>
+                <span class="leading-relaxed">Developed a production-grade research platform dedicated to the empirical study of neural networks, featuring eight sophisticated adversarial attack vectors and four model defenses.</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <span class="w-1.5 h-1.5 rounded-full bg-sky-400 mt-1.5 shrink-0"></span>
+                <span class="leading-relaxed">Built an interactive FastAPI web studio equipped with a dynamic real-time drawing canvas, detailed perturbation heatmaps, and responsive 2D loss landscape visualizers.</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <span class="w-1.5 h-1.5 rounded-full bg-sky-400 mt-1.5 shrink-0"></span>
+                <span class="leading-relaxed">Achieved an 81.25% robustness gain on the MNIST image dataset by systematically implementing adversarial training and randomized defensive Gaussian smoothing filters.</span>
+              </li>
+            </ul>
+            <div class="flex flex-wrap gap-1.5 mb-2">
+              <span class="px-2 py-0.5 text-[11px] font-mono rounded bg-slate-900 text-slate-300 border border-slate-800">Python</span>
+              <span class="px-2 py-0.5 text-[11px] font-mono rounded bg-slate-900 text-slate-300 border border-slate-800">PyTorch</span>
+              <span class="px-2 py-0.5 text-[11px] font-mono rounded bg-slate-900 text-slate-300 border border-slate-800">FastAPI</span>
+              <span class="px-2 py-0.5 text-[11px] font-mono rounded bg-slate-900 text-slate-300 border border-slate-800">Adversarial ML</span>
+            </div>
+          </div>
+          <div class="px-6 pb-6 pt-3 bg-slate-950/40 flex items-center justify-between gap-3 border-t border-slate-800">
+            <button onclick="openProjectModal('adversarial-fgsm')" class="flex-1 py-2 px-3 text-xs font-semibold rounded-lg bg-slate-900 hover:bg-slate-800 text-sky-400 border border-slate-700/80 flex items-center justify-center gap-1.5 transition">
+              Technical Deep Dive
+            </button>
+            <a href="https://github.com/saitejalodagala/Adversarial-Examples-in-Neural-Networks-Reproducing-FGSM" target="_blank" rel="noopener noreferrer" class="p-2 text-xs rounded-lg bg-slate-900 hover:bg-slate-800 text-slate-300 border border-slate-700/80 flex items-center justify-center transition" title="View Source on GitHub">
+              <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+            </a>
+          </div>
+        </div>
+
+        <!-- Project 10: Farm Monitoring -->
+        <div class="glass-card flex flex-col justify-between overflow-hidden group border border-slate-800 hover:border-sky-500/40" data-project-card="farm-monitoring" data-category="ai">
+          <div class="p-6">
+            <div class="flex items-center justify-between gap-2 mb-3">
+              <span class="px-2.5 py-0.5 text-xs font-semibold font-mono rounded bg-slate-900 text-slate-300 border border-slate-700">
+                B.Tech Capstone
+              </span>
+              <span class="text-xs text-slate-400 font-mono">ANITS</span>
+            </div>
+            <h3 class="text-xl font-bold font-heading text-white group-hover:text-sky-400 transition mb-2">
+              Farm Monitoring System (IoT & CNN Crop Health Analytics)
+            </h3>
+            <p class="text-xs font-medium text-slate-400 mb-4 font-mono">
+              Agricultural Anomaly Detection with Embedded Sensors & CNN Leaf Disease Classification
+            </p>
+            <ul class="space-y-2 text-xs text-slate-300 mb-6">
+              <li class="flex items-start gap-2">
+                <span class="w-1.5 h-1.5 rounded-full bg-sky-400 mt-1.5 shrink-0"></span>
+                <span class="leading-relaxed">Developed an advanced agricultural anomaly detection system utilizing embedded IoT sensors to continuously track environmental shifts in soil moisture and pH with real-time alerts.</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <span class="w-1.5 h-1.5 rounded-full bg-sky-400 mt-1.5 shrink-0"></span>
+                <span class="leading-relaxed">Classified complex crop health conditions by deploying Convolutional Neural Networks on visual leaf data, subsequently generating precise chemical fertilizer prescriptions.</span>
+              </li>
+            </ul>
+            <div class="flex flex-wrap gap-1.5 mb-2">
+              <span class="px-2 py-0.5 text-[11px] font-mono rounded bg-slate-900 text-slate-300 border border-slate-800">TensorFlow</span>
+              <span class="px-2 py-0.5 text-[11px] font-mono rounded bg-slate-900 text-slate-300 border border-slate-800">Scikit-learn</span>
+              <span class="px-2 py-0.5 text-[11px] font-mono rounded bg-slate-900 text-slate-300 border border-slate-800">OpenCV</span>
+              <span class="px-2 py-0.5 text-[11px] font-mono rounded bg-slate-900 text-slate-300 border border-slate-800">IoT</span>
+            </div>
+          </div>
+          <div class="px-6 pb-6 pt-3 bg-slate-950/40 flex items-center justify-between gap-3 border-t border-slate-800">
+            <button onclick="openProjectModal('farm-monitoring')" class="flex-1 py-2 px-3 text-xs font-semibold rounded-lg bg-slate-900 hover:bg-slate-800 text-sky-400 border border-slate-700/80 flex items-center justify-center gap-1.5 transition">
+              Technical Deep Dive
+            </button>
+            <a href="https://github.com/saitejalodagala" target="_blank" rel="noopener noreferrer" class="p-2 text-xs rounded-lg bg-slate-900 hover:bg-slate-800 text-slate-300 border border-slate-700/80 flex items-center justify-center transition" title="View Source on GitHub">
+              <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+            </a>
+          </div>
+        </div>
+
+        <!-- Project 11: Twitter Sentiment -->
+        <div class="glass-card flex flex-col justify-between overflow-hidden group border border-slate-800 hover:border-sky-500/40" data-project-card="twitter-sentiment" data-category="software">
+          <div class="p-6">
+            <div class="flex items-center justify-between gap-2 mb-3">
+              <span class="px-2.5 py-0.5 text-xs font-semibold font-mono rounded bg-slate-900 text-slate-300 border border-slate-700">
+                NLP Mini Project
+              </span>
+              <span class="text-xs text-slate-400 font-mono">Self Project</span>
+            </div>
+            <h3 class="text-xl font-bold font-heading text-white group-hover:text-sky-400 transition mb-2">
+              Twitter Sentiment Analysis using NLP
+            </h3>
+            <p class="text-xs font-medium text-slate-400 mb-4 font-mono">
+              End-to-End NLP Pipeline with TF-IDF N-Grams, Calibrated Classifiers & Streamlit Dashboard
+            </p>
+            <ul class="space-y-2 text-xs text-slate-300 mb-6">
+              <li class="flex items-start gap-2">
+                <span class="w-1.5 h-1.5 rounded-full bg-sky-400 mt-1.5 shrink-0"></span>
+                <span class="leading-relaxed">Engineered an end-to-end NLP pipeline with regex text normalization, automatic hashtag segmentation, and emoji translation to heavily optimize social media text for sentiment classification.</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <span class="w-1.5 h-1.5 rounded-full bg-sky-400 mt-1.5 shrink-0"></span>
+                <span class="leading-relaxed">Trained mathematically calibrated, L2-regularized Logistic Regression and Multinomial Naive Bayes models on sparse TF-IDF vectors, consistently achieving over 94% test accuracy.</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <span class="w-1.5 h-1.5 rounded-full bg-sky-400 mt-1.5 shrink-0"></span>
+                <span class="leading-relaxed">Deployed an interactive Streamlit web dashboard facilitating real-time inference, token-level sentiment highlights, and batch CSV processing with Plotly visualizations.</span>
+              </li>
+            </ul>
+            <div class="flex flex-wrap gap-1.5 mb-2">
+              <span class="px-2 py-0.5 text-[11px] font-mono rounded bg-slate-900 text-slate-300 border border-slate-800">Python</span>
+              <span class="px-2 py-0.5 text-[11px] font-mono rounded bg-slate-900 text-slate-300 border border-slate-800">Scikit-learn</span>
+              <span class="px-2 py-0.5 text-[11px] font-mono rounded bg-slate-900 text-slate-300 border border-slate-800">TF-IDF</span>
+              <span class="px-2 py-0.5 text-[11px] font-mono rounded bg-slate-900 text-slate-300 border border-slate-800">Streamlit</span>
+            </div>
+          </div>
+          <div class="px-6 pb-6 pt-3 bg-slate-950/40 flex items-center justify-between gap-3 border-t border-slate-800">
+            <button onclick="openProjectModal('twitter-sentiment')" class="flex-1 py-2 px-3 text-xs font-semibold rounded-lg bg-slate-900 hover:bg-slate-800 text-sky-400 border border-slate-700/80 flex items-center justify-center gap-1.5 transition">
+              Technical Deep Dive
+            </button>
+            <a href="https://github.com/saitejalodagala/twitter-sentiment-analysis" target="_blank" rel="noopener noreferrer" class="p-2 text-xs rounded-lg bg-slate-900 hover:bg-slate-800 text-slate-300 border border-slate-700/80 flex items-center justify-center transition" title="View Source on GitHub">
+              <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+            </a>
+          </div>
+        </div>
+
+        <!-- Project 12: Tic-Tac-Toe -->
+        <div class="glass-card flex flex-col justify-between overflow-hidden group border border-slate-800 hover:border-sky-500/40" data-project-card="tic-tac-toe" data-category="software">
+          <div class="p-6">
+            <div class="flex items-center justify-between gap-2 mb-3">
+              <span class="px-2.5 py-0.5 text-xs font-semibold font-mono rounded bg-slate-900 text-slate-300 border border-slate-700">
+                Game AI
+              </span>
+              <span class="text-xs text-slate-400 font-mono">Self Project</span>
+            </div>
+            <h3 class="text-xl font-bold font-heading text-white group-hover:text-sky-400 transition mb-2">
+              Adversarial Minimax Game Engine (Tic-Tac-Toe)
+            </h3>
+            <p class="text-xs font-medium text-slate-400 mb-4 font-mono">
+              Unbeatable Adversarial Search with Alpha-Beta Pruning, Pygame GUI & Console Engine
+            </p>
+            <ul class="space-y-2 text-xs text-slate-300 mb-6">
+              <li class="flex items-start gap-2">
+                <span class="w-1.5 h-1.5 rounded-full bg-sky-400 mt-1.5 shrink-0"></span>
+                <span class="leading-relaxed">Developed an unbeatable artificial intelligence engine utilizing recursive Minimax adversarial search with Alpha-Beta pruning to guarantee instantaneous optimal moves.</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <span class="w-1.5 h-1.5 rounded-full bg-sky-400 mt-1.5 shrink-0"></span>
+                <span class="leading-relaxed">Designed a versatile dual-interface architecture featuring a modern, responsive Pygame GUI alongside a lightweight, pure Python interactive terminal console.</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <span class="w-1.5 h-1.5 rounded-full bg-sky-400 mt-1.5 shrink-0"></span>
+                <span class="leading-relaxed">Built a comprehensively designed automated test suite specifically to validate complex board states and underlying game-theoretic optimality proofs.</span>
+              </li>
+            </ul>
+            <div class="flex flex-wrap gap-1.5 mb-2">
+              <span class="px-2 py-0.5 text-[11px] font-mono rounded bg-slate-900 text-slate-300 border border-slate-800">Python</span>
+              <span class="px-2 py-0.5 text-[11px] font-mono rounded bg-slate-900 text-slate-300 border border-slate-800">Pygame</span>
+              <span class="px-2 py-0.5 text-[11px] font-mono rounded bg-slate-900 text-slate-300 border border-slate-800">Minimax</span>
+              <span class="px-2 py-0.5 text-[11px] font-mono rounded bg-slate-900 text-slate-300 border border-slate-800">Unit Testing</span>
+            </div>
+          </div>
+          <div class="px-6 pb-6 pt-3 bg-slate-950/40 flex items-center justify-between gap-3 border-t border-slate-800">
+            <button onclick="openProjectModal('tic-tac-toe')" class="flex-1 py-2 px-3 text-xs font-semibold rounded-lg bg-slate-900 hover:bg-slate-800 text-sky-400 border border-slate-700/80 flex items-center justify-center gap-1.5 transition">
+              Technical Deep Dive
+            </button>
+            <a href="https://github.com/saitejalodagala/tic-tac-toe" target="_blank" rel="noopener noreferrer" class="p-2 text-xs rounded-lg bg-slate-900 hover:bg-slate-800 text-slate-300 border border-slate-700/80 flex items-center justify-center transition" title="View Source on GitHub">
+              <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- TECHNICAL SKILLS MATRIX -->
+    <section id="skills" class="py-16 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+      <div class="text-center max-w-2xl mx-auto mb-10">
+        <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-slate-900 border border-slate-700/80 text-slate-300 text-xs font-mono mb-3">
+          Core Competencies
+        </div>
+        <h2 class="text-3xl sm:text-4xl font-bold font-heading text-white">Skills & Technologies</h2>
+        <p class="text-sm text-slate-400 mt-1">
+          Modern control theory, machine learning frameworks, and infrastructure tooling.
+        </p>
+      </div>
+
+      <div id="skills-container" class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <!-- Systems & Control Theory -->
+        <div class="glass-card p-6 border border-slate-800 hover:border-slate-700 transition">
+          <div class="flex items-center gap-3 mb-5">
+            <div class="p-2 rounded-lg bg-slate-900 text-sky-400 border border-slate-700">
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 3v2m6-2v2M9 19v2m6-2v2M5 9H3m2 6H3m18-6h-2m2 6h-2M7 19h10a2 2 0 002-2V7a2 2 0 00-2-2H7a2 2 0 00-2 2v10a2 2 0 002 2zM9 9h6v6H9V9z"/></svg>
+            </div>
+            <h3 class="text-lg font-bold font-heading text-white">Systems & Control Theory</h3>
+          </div>
+          <div class="flex flex-wrap gap-2">
+            <span class="px-2.5 py-1 text-xs font-mono rounded bg-slate-900 text-slate-300 border border-slate-800">Model Predictive Control (MPPI / MPC)</span>
+            <span class="px-2.5 py-1 text-xs font-mono rounded bg-slate-900 text-slate-300 border border-slate-800">Optimal Control (LQR / LQG)</span>
+            <span class="px-2.5 py-1 text-xs font-mono rounded bg-slate-900 text-slate-300 border border-slate-800">Pacejka Tire Dynamics</span>
+            <span class="px-2.5 py-1 text-xs font-mono rounded bg-slate-900 text-slate-300 border border-slate-800">Hybrid Zero Dynamics (HZD)</span>
+            <span class="px-2.5 py-1 text-xs font-mono rounded bg-slate-900 text-slate-300 border border-slate-800">ZMP Preview Control</span>
+            <span class="px-2.5 py-1 text-xs font-mono rounded bg-slate-900 text-slate-300 border border-slate-800">Kalman Filter</span>
+            <span class="px-2.5 py-1 text-xs font-mono rounded bg-slate-900 text-slate-300 border border-slate-800">Simulink & Simscape</span>
+          </div>
+        </div>
+
+        <!-- ML & Frameworks -->
+        <div class="glass-card p-6 border border-slate-800 hover:border-slate-700 transition">
+          <div class="flex items-center gap-3 mb-5">
+            <div class="p-2 rounded-lg bg-slate-900 text-sky-400 border border-slate-700">
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+            </div>
+            <h3 class="text-lg font-bold font-heading text-white">Machine Learning & AI</h3>
+          </div>
+          <div class="flex flex-wrap gap-2">
+            <span class="px-2.5 py-1 text-xs font-mono rounded bg-slate-900 text-slate-300 border border-slate-800">PyTorch</span>
+            <span class="px-2.5 py-1 text-xs font-mono rounded bg-slate-900 text-slate-300 border border-slate-800">TensorFlow</span>
+            <span class="px-2.5 py-1 text-xs font-mono rounded bg-slate-900 text-slate-300 border border-slate-800">Scikit-learn</span>
+            <span class="px-2.5 py-1 text-xs font-mono rounded bg-slate-900 text-slate-300 border border-slate-800">Physics-Informed ML</span>
+            <span class="px-2.5 py-1 text-xs font-mono rounded bg-slate-900 text-slate-300 border border-slate-800">FastAPI</span>
+            <span class="px-2.5 py-1 text-xs font-mono rounded bg-slate-900 text-slate-300 border border-slate-800">Pandas & NumPy</span>
+            <span class="px-2.5 py-1 text-xs font-mono rounded bg-slate-900 text-slate-300 border border-slate-800">OpenCV</span>
+            <span class="px-2.5 py-1 text-xs font-mono rounded bg-slate-900 text-slate-300 border border-slate-800">NLP</span>
+          </div>
+        </div>
+
+        <!-- Languages & Tools -->
+        <div class="glass-card p-6 border border-slate-800 hover:border-slate-700 transition">
+          <div class="flex items-center gap-3 mb-5">
+            <div class="p-2 rounded-lg bg-slate-900 text-sky-400 border border-slate-700">
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 9l3 3-3 3m5 0h3M5 20h14a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
+            </div>
+            <h3 class="text-lg font-bold font-heading text-white">Languages & Tools</h3>
+          </div>
+          <div class="flex flex-wrap gap-2">
+            <span class="px-2.5 py-1 text-xs font-mono rounded bg-slate-900 text-slate-300 border border-slate-800">Python</span>
+            <span class="px-2.5 py-1 text-xs font-mono rounded bg-slate-900 text-slate-300 border border-slate-800">MATLAB</span>
+            <span class="px-2.5 py-1 text-xs font-mono rounded bg-slate-900 text-slate-300 border border-slate-800">C / C++</span>
+            <span class="px-2.5 py-1 text-xs font-mono rounded bg-slate-900 text-slate-300 border border-slate-800">HTML / CSS / JS</span>
+            <span class="px-2.5 py-1 text-xs font-mono rounded bg-slate-900 text-slate-300 border border-slate-800">Git</span>
+            <span class="px-2.5 py-1 text-xs font-mono rounded bg-slate-900 text-slate-300 border border-slate-800">Docker & K8s</span>
+            <span class="px-2.5 py-1 text-xs font-mono rounded bg-slate-900 text-slate-300 border border-slate-800">Linux</span>
+            <span class="px-2.5 py-1 text-xs font-mono rounded bg-slate-900 text-slate-300 border border-slate-800">CUDA</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- EXTRACURRICULARS & HOBBIES -->
+    <section id="extracurriculars" class="py-16 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
+        <!-- Extracurriculars -->
+        <div class="lg:col-span-7">
+          <div class="mb-6">
+            <h3 class="text-2xl font-bold font-heading text-white">Extra Curricular Activities</h3>
+            <p class="text-xs text-slate-400 font-mono mt-0.5">Competitive Achievements @ IIT Bombay</p>
+          </div>
+
+          <div id="extracurriculars-grid" class="space-y-4">
+            <!-- Pool 1st Prize -->
+            <div class="glass-card p-5 border border-slate-800 flex items-start gap-3.5">
+              <div class="w-8 h-8 rounded bg-slate-900 text-sky-400 border border-slate-700 flex items-center justify-center shrink-0 mt-0.5 text-xs font-bold font-mono">
+                1st
+              </div>
+              <div>
+                <h4 class="text-sm font-bold font-heading text-white">Pool Institute Hostel General Championship</h4>
+                <p class="text-xs text-slate-400 font-mono mt-0.5 mb-1">IIT Bombay</p>
+                <p class="text-xs text-slate-300 leading-relaxed">Demonstrated strategic gameplay and consistent performance under pressure against top-tier collegiate participants.</p>
+              </div>
+            </div>
+
+            <!-- Cricket 2nd Place -->
+            <div class="glass-card p-5 border border-slate-800 flex items-start gap-3.5">
+              <div class="w-8 h-8 rounded bg-slate-900 text-slate-300 border border-slate-700 flex items-center justify-center shrink-0 mt-0.5 text-xs font-bold font-mono">
+                2nd
+              </div>
+              <div>
+                <h4 class="text-sm font-bold font-heading text-white">Cricket Hostel 6 General Championship</h4>
+                <p class="text-xs text-slate-400 font-mono mt-0.5 mb-1">IIT Bombay</p>
+                <p class="text-xs text-slate-300 leading-relaxed">Contributed to tactical success and athletic excellence in collegiate tournaments.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Hobbies & Interests -->
+        <div class="lg:col-span-5">
+          <div class="mb-6">
+            <h3 class="text-2xl font-bold font-heading text-white">Interests</h3>
+            <p class="text-xs text-slate-400 font-mono mt-0.5">Passions Outside Engineering</p>
+          </div>
+
+          <div id="hobbies-grid" class="grid grid-cols-2 gap-3">
+            <div class="glass-card p-4 text-center border border-slate-800 hover:border-slate-700 transition">
+              <div class="text-xs font-semibold text-slate-200 font-mono">Playing Pool</div>
+            </div>
+            <div class="glass-card p-4 text-center border border-slate-800 hover:border-slate-700 transition">
+              <div class="text-xs font-semibold text-slate-200 font-mono">Squash</div>
+            </div>
+            <div class="glass-card p-4 text-center border border-slate-800 hover:border-slate-700 transition">
+              <div class="text-xs font-semibold text-slate-200 font-mono">Chess</div>
+            </div>
+            <div class="glass-card p-4 text-center border border-slate-800 hover:border-slate-700 transition">
+              <div class="text-xs font-semibold text-slate-200 font-mono">Painting</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT & CONNECT SECTION -->
+    <section id="contact" class="py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+      <div class="glass-card p-8 sm:p-12 border border-slate-800 text-center max-w-3xl mx-auto relative">
+        <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-slate-900 border border-slate-700 text-slate-300 text-xs font-mono mb-4">
+          Connect
+        </div>
+
+        <h2 class="text-3xl sm:text-4xl font-bold font-heading text-white mb-3">Get in Touch</h2>
+        <p class="text-sm text-slate-300 leading-relaxed max-w-xl mx-auto mb-8">
+          Feel free to reach out for research discussions, engineering collaborations, or opportunities in Model Predictive Control, Robotics, Machine Learning, Deep Learning, and Systems & Control.
+        </p>
+
+        <div class="flex flex-wrap items-center justify-center gap-4">
+          <a 
+            href="mailto:saiteja9875@gmail.com" 
+            class="px-6 py-3 rounded-lg bg-sky-500 hover:bg-sky-400 text-slate-950 font-bold text-xs font-heading flex items-center gap-2 shadow-sm transition"
+          >
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+            saiteja9875@gmail.com
+          </a>
+
+          <button 
+            onclick="copyToClipboard('saiteja9875@gmail.com', 'Copied saiteja9875@gmail.com to clipboard!')"
+            class="px-5 py-3 rounded-lg bg-slate-900 hover:bg-slate-800 border border-slate-700 text-slate-300 text-xs font-mono flex items-center gap-2 transition"
+          >
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 5H6a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2v-1M8 5a2 2 0 002 2h2a2 2 0 002-2M8 5a2 2 0 012-2h2a2 2 0 012 2m0 0h2a2 2 0 012 2v3m2 4H10m0 0l3-3m-3 3l3 3"/></svg>
+            Copy Email
+          </button>
+
+          <a 
+            href="https://www.linkedin.com/in/saitejalodagala/" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            class="px-5 py-3 rounded-lg bg-slate-900 hover:bg-slate-800 border border-slate-700 text-slate-300 hover:text-sky-400 text-xs font-mono flex items-center gap-2 transition"
+          >
+            LinkedIn
+          </a>
+
+          <a 
+            href="https://github.com/saitejalodagala" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            class="px-5 py-3 rounded-lg bg-slate-900 hover:bg-slate-800 border border-slate-700 text-slate-300 text-xs font-mono flex items-center gap-2 transition"
+          >
+            GitHub
+          </a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="border-t border-slate-900 py-8 px-4 text-center text-xs text-slate-500 font-mono">
+    <div class="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
+      <div>
+        © 2026 Sai Teja Lodagala • Systems & Control Engineering, IIT Bombay
+      </div>
+      <div class="flex items-center gap-5">
+        <a href="https://github.com/saitejalodagala" target="_blank" class="hover:text-slate-300 transition">GitHub</a>
+        <a href="https://www.linkedin.com/in/saitejalodagala/" target="_blank" class="hover:text-sky-400 transition">LinkedIn</a>
+        <a href="mailto:saiteja9875@gmail.com" class="hover:text-slate-300 transition">saiteja9875@gmail.com</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- PROJECT DEEP-DIVE MODAL -->
+  <div id="project-modal" class="fixed inset-0 z-50 modal-backdrop hidden flex items-center justify-center p-4">
+    <div class="glass-panel w-full max-w-3xl max-h-[90vh] overflow-y-auto p-6 sm:p-8 border border-slate-700 shadow-2xl modal-enter-active">
+      <div id="project-modal-content">
+        <!-- Injected dynamically by app.js on button click -->
+      </div>
+    </div>
+  </div>
+
+  <!-- FLOATING HACKER TERMINAL DRAWER -->
+  <div id="terminal-drawer" class="fixed bottom-6 left-6 z-50 w-[90vw] sm:w-[500px] h-[360px] terminal-window rounded-xl overflow-hidden hidden flex flex-col font-mono text-xs shadow-2xl">
+    <!-- Header -->
+    <div class="terminal-header px-4 py-2 flex items-center justify-between text-slate-400">
+      <div class="flex items-center gap-2">
+        <div class="w-2.5 h-2.5 rounded-full bg-slate-700"></div>
+        <div class="w-2.5 h-2.5 rounded-full bg-slate-700"></div>
+        <div class="w-2.5 h-2.5 rounded-full bg-slate-700"></div>
+        <span class="text-[11px] text-slate-400 ml-2">saiteja@iitbombay: ~/portfolio</span>
+      </div>
+      <button id="terminal-close" class="text-slate-400 hover:text-white">
+        <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+      </button>
+    </div>
+
+    <!-- Output Body -->
+    <div id="terminal-output" class="flex-grow p-4 overflow-y-auto bg-slate-950 text-slate-300">
+      <div class="text-sky-400 font-bold mb-1">Sai Teja Lodagala | Systems & Control Engineering, IIT Bombay</div>
+      <div class="text-slate-400 mb-3">Type <span class="text-slate-200 font-bold">help</span> to view available commands, or explore <span class="text-slate-200 font-bold">education</span>, <span class="text-slate-200 font-bold">skills</span>, and <span class="text-slate-200 font-bold">projects</span>.</div>
+    </div>
+
+    <!-- Input Box -->
+    <div class="p-2.5 bg-slate-900 border-t border-slate-800 flex items-center gap-2">
+      <span class="text-sky-400 font-bold">guest@iitb:~$</span>
+      <input 
+        id="terminal-input" 
+        type="text" 
+        autocomplete="off" 
+        spellcheck="false" 
+        class="flex-grow bg-transparent text-slate-100 focus:outline-none font-mono text-xs"
+        placeholder="Type command (e.g. help, education, skills, projects)..."
+      />
+    </div>
+  </div>
+
+  <!-- SCRIPTS -->
+  <script src="js/projects-data.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
